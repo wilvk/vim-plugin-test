@@ -3,6 +3,8 @@ if !has('python3')
   finish
 endif
 
-function! GReg()
+function! GdbStart()
   py3file plugin/start_gdb.py
 endfunc
+
+command! GdbStart call GdbStart()

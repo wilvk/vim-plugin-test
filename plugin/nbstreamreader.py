@@ -13,11 +13,14 @@ class NonBlockingStreamReader(object):
         def populateQueue(stream, queue):
             while True:
                 if not stream.closed:
-                    line = stream.readline()
-                    if line:
-                        queue.put(line)
-                    else:
-                        print()
+                    try:
+                        line = stream.readline()
+                        if line:
+                            queue.put(line)
+                        else:
+                            print()
+                    except:
+                        pass
 
         self._t = Thread(target = populateQueue, args = (self._s, self._q))
         self._t.daemon = True
