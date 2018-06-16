@@ -4,9 +4,5 @@ if !has('python3')
 endif
 
 function! GReg()
-  py3file plugin/test.py
+  py3file plugin/start_gdb.py
 endfunc
-
-python3 << EOF
-print("It worked!")
-EOF
